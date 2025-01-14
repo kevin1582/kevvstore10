@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pembelian Wild Rift</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Pembelian Wild Rift</h1>
+    <form id="purchaseForm">
+        <label for="riotId">Masukkan ID Riot:</label>
+        <input type="text" id="riotId" name="riotId" placeholder="Masukkan ID Riot Anda" required>
+
+        <label for="product">Pilih Produk:</label>
+        <select id="product" name="product" required>
+            <option value="425 Wild Cores - Rp. 60.000">425 Wild Cores - Rp. 60.000</option>
+            <option value="1.000 Wild Cores - Rp. 130.000">1.000 Wild Cores - Rp. 130.000</option>
+            <option value="1.850 Wild Cores - Rp. 220.000">1.850 Wild Cores - Rp. 220.000</option>
+            <option value="3.275 Wild Cores - Rp. 400.000">3.275 Wild Cores - Rp. 400.000</option>
+        </select>
+
+        <button type="button" onclick="submitForm()">Kirim ke WhatsApp</button>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        const riotId = document.getElementById('riotId').value;
+        const productSelect = document.getElementById('product');
+        const productText = productSelect.options[productSelect.selectedIndex].text; // Ambil teks produk lengkap
+
+        if (!riotId || !productText) {
+            alert('Silakan lengkapi semua informasi.');
+            return;
+        }
+
+        // Format pesan lebih jelas
+        const message = `Pembelian Produk League of Legends Wild Rift:%0A` +
+                        `ID Riot: ${riotId}%0A` +
+                        `Produk: ${productText}%0A` +
+                        `Terima kasih telah menggunakan layanan kami.`;
+
+        const whatsappNumber = "6281538769551"; // Ganti dengan nomor WhatsApp tujuan
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</body>
+</html>
