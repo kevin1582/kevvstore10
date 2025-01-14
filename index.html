@@ -5,287 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KEVV STORE</title>
     <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
+            font-family: Arial, sans-serif;
             background-color: #22333b;
             color: #fff;
-        } 
+            line-height: 1.6;
+        }
 
-        .menu {
-            background-color: #fff;
-            color: #fff;
+        nav {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px 0;
-            margin: 0;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+        }
+
+        nav .navbar-logo {
+            width: 120px;
+        }
+
+        nav ul {
+            display: flex;
             list-style: none;
-            text-align: center;
+            gap: 15px;
         }
 
-
-        .menu li {
-            display: inline;
-        }
-
-        .menu a {
+        nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 8px 12px;
             border-radius: 5px;
+            transition: background 0.3s;
         }
 
-        .menu a:hover {
-            background-color: #fff;
+        nav ul li a:hover {
+            background-color: #555;
         }
 
-        .search-container {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .search-container input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 400px;
-        }
-
-        /* Slider styles */
         .slider-container {
             position: relative;
             max-width: 100%;
-            margin: 20px auto;
+            overflow: hidden;
         }
 
         .slider img {
             width: 100%;
-            height: 400px;
+            display: none;
             border-radius: 10px;
         }
 
-        .slide {
-            display: none;
-        }
-
-        .active {
+        .slider img.active {
             display: block;
         }
 
- 
-    /* Grid container styles */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Set grid to 3 columns */
-        gap: 15px;
-        padding: 20px;
-        margin-bottom: 100px;
-    }
+        marquee {
+            color: #fff;
+            background-color: #444;
+            padding: 10px 0;
+        }
 
-    .grid-item {
-        text-align: center;
-    }
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-    .grid-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        cursor: pointer;
-    }
+        .search-container input {
+            width: 90%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
 
-    .grid-item h3 {
-        margin-top: 10px;
-        color: #fff;
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
         .grid-container {
-            grid-template-columns: repeat(2, 1fr); /* Set grid to 2 columns for smaller screens */
-        }
-    }
-
-    @media (max-width: 480px) {
-        .grid-container {
-            grid-template-columns: 1fr; /* Set grid to 1 column for very small screens */
-        }
-    }
-
-
-        
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
         }
 
-        body.dark-mode .menu {
-            background-color: #222;
+        .grid-item {
+            text-align: center;
+            background-color: #2a3d45;
+            border-radius: 10px;
+            padding: 15px;
+            transition: transform 0.3s;
         }
 
-        body.dark-mode .menu a:hover {
-            background-color: #575757;
+        .grid-item img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
-        /* Responsive styles */
+        .grid-item h3 {
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer .socialIcons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        footer .socialIcons a {
+            background-color: #555;
+            padding: 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        footer .socialIcons a:hover {
+            background-color: #999;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
         @media (max-width: 768px) {
-            .menu {
+            nav ul {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .menu a {
-                padding: 15px;
+                gap: 10px;
                 text-align: center;
-                border-bottom: 1px solid #575757;
-                width: 100%;
             }
-
-            .slider img {
-                height: 200px;
-                border: 2px solid #fff;
-            }
-            nav {
-
-    background-color: #22333b;
-
-    display: flex;
-    justify-content: left;
-    padding: 10px;
-}
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-footer{
-    background-color: #22333b;
-}
-.footerContainer{
-    width: 100%;
-    padding: 70px 30px 20px ;
-}
-.socialIcons{
-    display: flex;
-    justify-content: left;
-}
-.socialIcons a{
-    text-decoration: none;
-    padding:  10px;
-    background-color: white;
-    margin: 10px;
-    border-radius: 50%;
-}
-.socialIcons a i{
-    font-size: 2em;
-    color: black;
-    opacity: 0,9;
-}
-/* Hover affect on social media icon */
-.socialIcons a:hover{
-    background-color: #111;
-    transition: 0.5s;
-}
-.socialIcons a:hover i{
-    color: white;
-    transition: 0.5s;
-}
-.footerNav{
-    margin: 30px 0;
-}
-.footerNav ul{
-    display: flex;
-    justify-content: left;
-    list-style-type: none;
-}
-.footerNav ul li a{
-    color:white;
-    margin: 20px;
-    text-decoration: none;
-    font-size: 1.3em;
-    opacity: 0.7;
-    transition: 0.5s;
-
-}
-.footerNav ul li a:hover{
-    opacity: 1;
-}
-.footerBottom{
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-}
-.footerBottom p{
-    color: white;
-}
-.designer{
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 400;
-    margin: 0px 5px;
-}
-@media (max-width: 700px){
-    .footerNav ul{
-        flex-direction: column;
-    } 
-    .footerNav ul li{
-        width:100%;
-        text-align: center;
-        margin: 10px;
-    }
-    .socialIcons a{
-        padding: 8px;
-        margin: 4px;
-    }
-}
-
-
-.navbar-logo {
-    width: 135px; /* Atur ukuran gambar sesuai keinginan */
-    height: auto;
-}
-
 
             .grid-container {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 10px;
-                padding: 20px;
-                margin-bottom: 100px;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .navbar-logo {
+                width: 100px;
             }
 
-            .grid-item img {
-                width: 80%;
+            .search-container input {
+                width: 95%;
             }
         }
     </style>
 </head>
 <body>
+
+<!-- Navigation Bar -->
 <nav>
-    
-   
-<div class="brand">
-        <img src="logo.png" alt="KEVV' STORE Logo" class="navbar-logo">
-    </
-</div>
+    <img src="logo.png" alt="KEVV STORE Logo" class="navbar-logo">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Bantuan</a></li>
+    </ul>
 </nav>
 
 <!-- Slider Section -->
 <div class="slider-container">
-    <div class="slider">
-        <img src="slider1.jpg" alt="Slide 1" class="slide active">
-        <img src="slider2.jpg" alt="Slide 2" class="slide">
-        <img src="slider3.jpg" alt="Slide 3" class="slide">
-    </div>
+    <img src="slider1.jpg" alt="Slide 1" class="active">
+    <img src="slider2.jpg" alt="Slide 2">
+    <img src="slider3.jpg" alt="Slide 3">
 </div>
-<!-- Running Text -->
-<marquee behavior="scroll" direction="left" >KEVV' STORE Jasa Top-up Game Yang Aman, Murah, dan Terpercaya.</marquee>
 
+<!-- Running Text -->
+<marquee>KEVV' STORE Jasa Top-up Game Yang Aman, Murah, dan Terpercaya.</marquee>
+
+<!-- Search Section -->
 <div class="search-container">
-    <input type="text" id="search" placeholder="Mau Cari Apa Di Kevv' Store">
+    <input type="text" id="search" placeholder="Mau Cari Apa Di Kevv' Store?">
 </div>
+
+<!-- Grid Section -->
     <div class="grid-container" id="gameGrid">
       <div class="grid-item">
             <a href="UPDATE/CODE PULSA/pln.html"><img src="UPDATE/CODE PULSA/pln.jpg" alt="Mobile Legends"></a>
@@ -377,46 +288,40 @@ footer{
             <h3>Clash Of Clans</h3>
         </div>
     </div>
-    <footer>
-    <div class="footerContainer">
-        <div class="footerNav">
-            <ul><li><a href="index.html">Home</a></li>
-                <li><a href="tentang.html">Tentang Kami</a></li>
-                <li><a href="bantuan.html">Bantuan ?</a></li>
 
-            </ul>
-        </div>
-        
+<!-- Footer Section -->
+<footer>
+    <div class="socialIcons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
-    <div class="footerBottom">
-        <p>Copyright &copy;2024 Provider Top Up Aman Dan Terpercaya by <span class="designer">Kevv'Store</span></p>
-    </div>
+    <p>Copyright &copy; 2024 KEVV' STORE - Aman dan Terpercaya</p>
+</footer>
+
 <script>
+    // Slider functionality
     let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-    const changeSlide = () => {
+    const slides = document.querySelectorAll('.slider img');
+
+    function changeSlide() {
         slides.forEach((slide, index) => {
-            slide.style.display = 'none';
             slide.classList.remove('active');
         });
-        slideIndex++;
-        if (slideIndex > slides.length) slideIndex = 1;
-        slides[slideIndex - 1].style.display = 'block';
-        slides[slideIndex - 1].classList.add('active');
-    };
-    setInterval(changeSlide, 2000); // Change image every 4 seconds
+        slideIndex = (slideIndex + 1) % slides.length;
+        slides[slideIndex].classList.add('active');
+    }
 
-    document.getElementById('search').addEventListener('input', function() {
-        let query = this.value.toLowerCase();
-        let items = document.querySelectorAll('.grid-item');
+    setInterval(changeSlide, 3000);
+
+    // Search functionality
+    document.getElementById('search').addEventListener('input', function () {
+        const query = this.value.toLowerCase();
+        const items = document.querySelectorAll('.grid-item');
 
         items.forEach(item => {
-            let title = item.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(query)) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
+            const title = item.querySelector('h3').textContent.toLowerCase();
+            item.style.display = title.includes(query) ? '' : 'none';
         });
     });
 </script>
