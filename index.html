@@ -44,7 +44,7 @@
         /* Running Text */
         .running-text {
             background-color: #3e424b;
-            color: #fff;
+            color: #1e90ff;
             font-size: 18px;
             padding: 10px;
             text-align: center;
@@ -91,8 +91,9 @@
         .trending-title {
             display: flex;
             align-items: center;
-            font-size: 18px;
+            font-size: 15x;
             font-weight: bold;
+            color: #1e90ff;
         }
         .trending-title img {
             width: 20px;
@@ -140,7 +141,7 @@
             border-radius: 8px;
             text-align: center;
             padding: 10px;
-            color: #fff;
+            color: #1e90ff;
         }
 
 
@@ -241,7 +242,7 @@ h1 {
 
         .close-button {
             background-color: transparent;
-            color: #fff;
+            color: #red;
             font-size: 24px;
             border: none;
             cursor: pointer;
@@ -268,7 +269,9 @@ h1 {
         <a href="bantuan.html">Bantuan</a>
     </div>
 </div>
-
+    <div class="container">
+        <h1 id="greeting"></h1>
+    </div>
     </header>
 
     <!-- Running Text -->
@@ -311,7 +314,7 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
 
     .category {
         flex: 0 0 auto;
-        color: #fff;
+        color: #1e90ff;
         text-decoration: none;
         background-color: #3e424b;
         border-radius: 8px;
@@ -326,16 +329,36 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
         background-color: #2a5b7d;
     }
 </style>
-    <div class="container">
-        <h1 id="greeting"></h1>
-    </div>
+
+     <div class="trending-container">
+        <div class="trending-title">
+            <img src="trending.png">
+           TRENDING
+        </div>
+    <!-- Games List -->
+    <div class="grid-container" id="gameGrid">
+        
+        <div class="grid-item">
+            <a href="mlbb.html"><img src="ml.jpeg" alt="Mobile Legends"></a>
+            <h3>Mobile Legends</h3>
+        </div>
+        <div class="grid-item">
+            <a href="ff.html"><img src="ff.jpeg" alt="Free Fire"></a>
+            <h3>Free Fire</h3>
+        </div>
+                <div class="grid-item">
+            <a href="HOK.html"><img src="HOK.jpg" alt="Honor Of Kings"></a>
+            <h3>Honor Of Kings</h3>
+        </div>
+         <div class="grid-item">
+            <a href="UPDATE/blood.html"><img src="UPDATE/blood.jpeg" alt="Call of Duty Mobile"></a>
+            <h3>Blood Strike</h3>
+        </div>
     <div class="trending-container">
         <div class="trending-title">
             <img src="game.png">
             GAME
         </div>
-        <div class="trending-desc">
-            
         </div>
     </div>
     <!-- Games List -->
@@ -414,6 +437,7 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
             <h3>Clash Of Clans</h3>
         </div>
     </div>
+       
 
     <script>
         // Slider Script
@@ -460,4 +484,4 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
 updateGreeting();
     </script>
 </body>
-                </html>
+</html>
