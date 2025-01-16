@@ -85,7 +85,25 @@
             height: auto;
             object-fit: cover;
         }
-
+        .trending-container {
+            padding: 20px;
+        }
+        .trending-title {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .trending-title img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        .trending-desc {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #d3d3d3;
+        }
         /* Categories */
         .categories {
             display: flex;
@@ -125,6 +143,19 @@
             color: #fff;
         }
 
+
+.container {
+    text-align: left;
+    border: white;
+    padding: 20px;
+    border-radius: 10px;
+   
+}
+
+h1 {
+    font-size: 1rem;
+    margin: 0;
+}
         .grid-item img {
             width: 100px;
             height: 100px;
@@ -159,6 +190,63 @@
                 font-size: 14px;
             }
         }
+                /* Hamburger Menu */
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            background-color: #3e424b;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .menu-overlay.open {
+            transform: translateX(0);
+        }
+
+        .menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        .menu-content a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 0;
+        }
+
+        .menu-content a:hover {
+            text-decoration: underline;
+        }
+
+        .close-button {
+            background-color: transparent;
+            color: #fff;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -166,10 +254,21 @@
         <div class="logo">
             <img src="logo.png" alt="Topup Indo Logo">
         </div>
-        <nav>
-            <a href="tentang.html">Tentang Kami</a>
-            <a href="bantuan.html">Bantuan</a>
-        </nav>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+<!-- Hamburger Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+    <div class="menu-content">
+        <button class="close-button" id="closeButton">X</button>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="bantuan.html">Bantuan</a>
+    </div>
+</div>
+
     </header>
 
     <!-- Running Text -->
@@ -181,9 +280,11 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
     <!-- Slider -->
     <div class="slider">
         <div class="slider-images" id="sliderImages">
+                                  <img src="SLIDER.jpg" alt="Slider Image 3">
             <img src="slider1.jpg" alt="Slider Image 1">
             <img src="slider2.jpg" alt="Slider Image 2">
-            <img src="slider3.jpg" alt="Slider Image 3">
+            <img src="slider4.jpg" alt="Slider Image 3">
+
         </div>
     </div>
 
@@ -225,7 +326,18 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
         background-color: #2a5b7d;
     }
 </style>
-
+    <div class="container">
+        <h1 id="greeting"></h1>
+    </div>
+    <div class="trending-container">
+        <div class="trending-title">
+            <img src="game.png">
+            GAME
+        </div>
+        <div class="trending-desc">
+            
+        </div>
+    </div>
     <!-- Games List -->
     <div class="grid-container" id="gameGrid">
         
@@ -316,6 +428,36 @@ Nikmati pelayanan yang ramah dan promo yang menarik disini!!😉 | Bingung mau t
         }
 
         setInterval(moveSlider, 3000); // Change every 3 seconds
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeButton = document.getElementById('closeButton');
+
+        // Open menu
+        hamburgerMenu.addEventListener('click', () => {
+            menuOverlay.classList.add('open');
+        });
+
+        // Close menu
+        closeButton.addEventListener('click', () => {
+            menuOverlay.classList.remove('open');
+        });
+        function updateGreeting() {
+    const greeting = document.getElementById("greeting");
+    const hour = new Date().getHours();
+
+    if (hour >= 5 && hour < 12) {
+        greeting.textContent = "Hi, selamat pagi!";
+    } else if (hour >= 12 && hour < 15) {
+        greeting.textContent = "Hi, selamat siang!";
+    } else if (hour >= 15 && hour < 18) {
+        greeting.textContent = "Hi, selamat sore!";
+    } else {
+        greeting.textContent = "Hi, selamat malam!";
+    }
+}
+
+// Panggil fungsi saat halaman dimuat
+updateGreeting();
     </script>
 </body>
-                                       </html>
+                </html>
