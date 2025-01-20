@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #121212; /* Background gelap */
+            color: #e0e0e0; /* Warna teks terang */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,10 +17,10 @@
         }
 
         .container {
-            background-color: #fff;
+            background-color: #1e1e1e; /* Warna kotak form */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             width: 300px;
         }
 
@@ -33,15 +34,18 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            color: #ffffff;
         }
 
         input, textarea, button {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #555; /* Border untuk input */
             border-radius: 4px;
             box-sizing: border-box;
+            background-color: #2a2a2a; /* Background input */
+            color: #e0e0e0; /* Warna teks input */
         }
 
         textarea {
@@ -49,7 +53,7 @@
         }
 
         button {
-            background-color: #007bff;
+            background-color: #007bff; /* Warna tombol */
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -57,19 +61,47 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Warna tombol saat hover */
         }
 
         .note {
             font-size: 12px;
-            color: #666;
+            color: #999;
+        }
+
+        /* Reset margin dan padding */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* Atur background */
+        .background {
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Style untuk gambar foreground */
+        .foreground-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Butuh Bantuan?</h1>
+        <div class="background">
+            <img src="logo-nav.png" alt="Your Image" class="foreground-image">
+        </div>
         <form id="bantuanForm">
             <label for="nama">Nama:</label>
             <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Anda" required><br>
