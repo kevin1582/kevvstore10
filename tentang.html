@@ -9,45 +9,67 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #121212; /* Warna latar gelap */
+            color: #e0e0e0; /* Warna teks terang */
         }
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #fff 3px solid;
-            text-align: center;
-        }
-        header h1 {
+
+        /* Reset margin dan padding */
+        body, html {
             margin: 0;
-            font-size: 2em;
+            padding: 0;
+            height: 100%;
         }
+
+        /* Atur background */
+        .background {
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Style untuk gambar foreground */
+        .foreground-image {
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
         section {
             padding: 20px;
-            background: #fff;
+            background: #1e1e1e; /* Warna latar elemen */
             margin: 20px 0;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
         .about {
             text-align: center;
         }
+
         .about h2 {
-            color: #333;
+            color: #ffffff; /* Warna teks heading */
         }
+
         .about p {
             line-height: 1.6;
-            color: #555;
+            color: #cfcfcf; /* Warna teks paragraf */
         }
+
         .programmer {
             text-align: center;
         }
+
         .programmer img {
             border-radius: 50%;
             width: 150px;
@@ -55,18 +77,20 @@
             object-fit: cover;
             margin-bottom: 10px;
         }
+
         .programmer h3 {
-            color: #333;
+            color: #ffffff;
         }
+
         .programmer p {
-            color: #555;
+            color: #cfcfcf;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>About KEVV' STORE</h1>
+        <div class="background">
+            <img src="logo-nav.png" alt="Your Image" class="foreground-image">
         </div>
     </header>
 
@@ -78,7 +102,7 @@
         
         <section class="programmer">
             <h2>Pemilik Website</h2>
-            <img src="kevin.png" alt="Programmer">
+            <img src="kevin.png" alt="Pemilik">
             <h3>Kevin Fierdinan Pratama</h3>
             <p>Kevin Fierdinan Pratama Adalah Pemilik Asli Kevv' Store.</p>
         </section>
@@ -87,7 +111,7 @@
             <h2>Programmer Website</h2>
             <img src="program.png" alt="Programmer">
             <h3>Rasyel Yufitra Arizqy</h3>
-            <p>Rasyel Yufitra Arizqy merupakan orang yang membuat website dari Kevv' Store Dia masih berumur 16 tahun dan duduk di bangku SMP kelas 9.</p>
+            <p>Rasyel Yufitra Arizqy merupakan orang yang membuat website dari Kevv' Store. Dia masih berumur 16 tahun dan duduk di bangku SMP kelas 9.</p>
         </section>
     </div>
 </body>
